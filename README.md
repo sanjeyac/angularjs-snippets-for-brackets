@@ -32,9 +32,9 @@ The following elements works in the same way:
 * ngservice - a service
 * ngapp - an angula module
 
-## Generate snippets sample
+## Generated snippets samples
 
-```
+```javascript
 /* =================== CONTROLLER =================== */
 (function() {
     'use strict';
