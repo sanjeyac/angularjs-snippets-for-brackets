@@ -32,4 +32,121 @@ The following elements works in the same way:
 * ngservice - a service
 * ngapp - an angula module
 
+## Generate snippets sample
+
+```
+/* =================== CONTROLLER =================== */
+(function() {
+    'use strict';
+
+    angular
+        .module('module')
+        .controller('Controller', Controller);
+
+    Controller.$inject = ['dependencies'];
+
+    /* @ngInject */
+    function Controller(dependencies){
+        var vm = this;
+        vm.title = 'Controller';
+
+        activate();
+
+        ////////////////
+
+        function activate() {
+        }
+    }
+})();
+
+/* =================== DIRECTIVE =================== */
+(function () {
+    'use strict';
+    
+    
+    angular
+        .module('module')
+        .directive('directive', directive);
+    
+    directive.$inject = ['dependencies'];
+    
+    /* @ngInject */
+    function  directive(dependencies) {
+        // Usage:
+        //
+        // Creates:
+        //
+        var directive = {
+            bindToController: true,
+            controller: Controller,
+            controllerAs: 'vm',
+            link: link,
+            restrict: 'A',
+            scope: {}
+        };
+        return directive;
+
+        function link(scope, element, attrs) {}
+    }
+    
+    /* @ngInject */
+    function Controller() {
+    
+    }
+
+})();
+
+/* =================== FACTORY =================== */
+(function () {
+    'use strict';
+    angular
+        .module('module')
+        .factory('factory', factory);
+    
+    factory.$inject = ['dependencies'];
+    
+    /* @ngInject */
+    function  Factory(dependencies){
+        var service = {
+            func: func
+        };
+    
+        return service;
+    
+        ////////////////
+        function func() {
+            
+        }
+    }
+})();
+
+/* =================== APP MODULE =================== */
+(function () {
+    'use strict';
+
+    angular
+        .module('module', [
+                                'dependencies'
+                                ]);
+})();
+
+/* =================== FILTER =================== */
+(function () {
+    'use strict';
+    angular
+        .module('module')
+        .filter('filter', filter);
+    
+    
+    function filter() {
+        return filterFilter;
+        ////////////////
+        
+        function filterFilter(params) {
+            return params;
+        };
+    }
+})();
+
+```
 
