@@ -1,0 +1,157 @@
+- trigger: ngcontroller
+  description: "JohnPapa's style controller skeleton"
+  scope: javascript
+  mTime: 1426341822404
+  text: |
+        (function() {
+            'use strict';
+        
+            angular
+                .module('${1:module}')
+                .controller('${2:Controller}', ${2:Controller});
+        
+            ${2:Controller} = [${3:dependencies}];
+        
+            /* @ngInject */
+            function ${2:Controller}(){
+                var vm = this;
+                vm.title = '${2:Controller}';
+        
+                activate();
+        
+                ////////////////
+        
+                function activate() {
+                }
+            }
+        })();
+
+- trigger: ngdirective
+  description: AngularJS directive
+  scope: javascript
+  mTime: 1426344217926
+  text: |
+        (function () {
+            'use strict';
+            
+            
+            angular
+                .module('${1:module}')
+                .directive('${2:directive}', ${2:directive});
+            
+            {2:directive} = ['${3:dependencies}'];
+            
+            /* @ngInject */
+            function ${2: directive}() {
+                // Usage:
+                //
+                // Creates:
+                //
+                var directive = {
+                    bindToController: true,
+                    controller: ${4:Controller},
+                    controllerAs: '${5:vm}',
+                    link: link,
+                    restrict: 'A',
+                    scope: {}
+                };
+                return directive;
+        
+                function link(scope, element, attrs) {}
+            }
+            
+            /* @ngInject */
+            function ${4:Controller}() {
+            
+            }
+        
+        })();
+
+- trigger: ngfactory
+  description: AngularJS factory
+  scope: javascript
+  mTime: 1426344276036
+  text: |
+        (function () {
+            'use strict';
+            angular
+                .module('${1:module}')
+                .factory('${2:factory}', ${2:factory});
+            
+            {2:factory} = ['${3:dependencies}'];
+            
+            /* @ngInject */
+            function ${2: Factory}(){
+                var service = {
+                    ${4:func}: ${4:func}
+                };
+            
+                return service;
+            
+                ////////////////
+                function ${4:func}() {
+                    
+                }
+            }
+        })();
+
+- trigger: ngapp
+  description: AngularJS module
+  scope: javascript
+  mTime: 1426344310007
+  text: |
+        (function () {
+            'use strict';
+            
+            angular
+                .module('${1:module}', [
+                                        '${2:dependencies}'
+                                        ]);
+            
+        })();
+
+- trigger: ngservice
+  description: AngularJS service
+  scope: javascript
+  mTime: 1426344353252
+  text: |
+        (function () {
+            'use strict';
+            angular
+                .module('${1:module}')
+                .service('${2:Service}', ${2:Service});
+            
+            {2:Service} = ['${3:dependencies}'];    
+            
+            /* @ngInject */
+            function ${2:Service}() {
+                this.${4:func} = ${4:func};
+                ////////////////
+                function ${4:function}() {
+                    
+                }
+            }
+        })();
+
+- trigger: ngfilter
+  description: AngularJS filter
+  scope: javascript
+  mTime: 1426368214372
+  text: |
+        (function () {
+            'use strict';
+            angular
+                .module('${1:module}')
+                .filter('${2:filter}', ${2:filter});
+            
+            
+            function ${2:filter}() {
+                return ${2:filter}Filter;
+                ////////////////
+                
+                function ${2:filter}Filter(${3:params}) {
+                    return ${3:params};
+                };
+            }
+        })();
+
