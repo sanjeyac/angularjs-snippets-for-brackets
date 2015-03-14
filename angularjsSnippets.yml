@@ -1,70 +1,61 @@
-- trigger: ngcontroller
-  description: "JohnPapa's style controller skeleton"
+- trigger: ngfilter
+  description: AngularJS filter
   scope: javascript
-  mTime: 1426369752257
+  mTime: 1426368214372
   text: |
-        (function() {
+        (function () {
             'use strict';
-        
             angular
                 .module('${1:module}')
-                .controller('${2:Controller}', ${2:Controller});
-        
-            ${2:Controller}.$inject = ['${3:dependencies}'];
-        
-            /* @ngInject */
-            function ${2:Controller}(${3:dependencies}){
-                var vm = this;
-                vm.title = '${2:Controller}';
-        
-                activate();
-        
+                .filter('${2:filter}', ${2:filter});
+            
+            
+            function ${2:filter}() {
+                return ${2:filter}Filter;
                 ////////////////
-        
-                function activate() {
+                
+                function ${2:filter}Filter(${3:params}) {
+                    return ${3:params};
+                };
+            }
+        })();
+
+- trigger: ngservice
+  description: AngularJS service
+  scope: javascript
+  mTime: 1426370016697
+  text: |
+        (function () {
+            'use strict';
+            angular
+                .module('${1:module}')
+                .service('${2:Service}', ${2:Service});
+            
+            ${2:Service}.$inject = ['${3:dependencies}'];    
+            
+            /* @ngInject */
+            function ${2:Service}(${3:dependencies}) {
+                this.${4:func} = ${4:func};
+                ////////////////
+                function ${4:function}() {
+                    
                 }
             }
         })();
 
-- trigger: ngdirective
-  description: AngularJS directive
+- trigger: ngapp
+  description: AngularJS module
   scope: javascript
-  mTime: 1426370003018
+  mTime: 1426372333329
   text: |
         (function () {
             'use strict';
             
-            
             angular
-                .module('${1:module}')
-                .directive('${2:directive}', ${2:directive});
+                .module('${1:module}', [
+                        '${2:dependencies}'
+                ]);
             
-            ${2:directive}.$inject = ['${3:dependencies}'];
-            
-            /* @ngInject */
-            function ${2: directive}(${3:dependencies}) {
-                // Usage:
-                //
-                // Creates:
-                //
-                var directive = {
-                    bindToController: true,
-                    controller: ${4:Controller},
-                    controllerAs: '${5:vm}',
-                    link: link,
-                    restrict: 'A',
-                    scope: {}
-                };
-                return directive;
-        
-                function link(scope, element, attrs) {}
-            }
-            
-            /* @ngInject */
-            function ${4:Controller}() {
-            
-            }
-        
         })();
 
 - trigger: ngfactory
@@ -95,63 +86,75 @@
             }
         })();
 
-- trigger: ngapp
-  description: AngularJS module
+- trigger: ngdirective
+  description: AngularJS directive
   scope: javascript
-  mTime: 1426344310007
+  mTime: 1426372398088
   text: |
         (function () {
             'use strict';
             
-            angular
-                .module('${1:module}', [
-                                        '${2:dependencies}'
-                                        ]);
             
-        })();
-
-- trigger: ngservice
-  description: AngularJS service
-  scope: javascript
-  mTime: 1426370016697
-  text: |
-        (function () {
-            'use strict';
             angular
                 .module('${1:module}')
-                .service('${2:Service}', ${2:Service});
+                .directive('${2:directive}', ${2:directive});
             
-            ${2:Service}.$inject = ['${3:dependencies}'];    
+            ${2:directive}.$inject = ['${3:dependencies}'];
             
             /* @ngInject */
-            function ${2:Service}(${3:dependencies}) {
-                this.${4:func} = ${4:func};
-                ////////////////
-                function ${4:function}() {
-                    
-                }
+            function ${2: directive}(${3:dependencies}) {
+                // Usage:
+                //
+                // Creates:
+                //
+                var directive = {
+                    bindToController: true,
+                    controller: ${4:Controller},
+                    controllerAs: '${5:vm}',
+                    link: link,
+                    restrict: 'A',
+                    scope: {}
+                };
+                return directive;
+        
+                function link(scope, element, attrs) {}
             }
+        
+        
+            ${4:Controller}.$inject = ['${6:dependencies}'];    
+        
+            /* @ngInject */
+            function ${4:Controller}(${6:dependencies}) {
+            
+            }
+        
         })();
 
-- trigger: ngfilter
-  description: AngularJS filter
+- trigger: ngcontroller
+  description: "JohnPapa's style controller skeleton"
   scope: javascript
-  mTime: 1426368214372
+  mTime: 1426369752257
   text: |
-        (function () {
+        (function() {
             'use strict';
+        
             angular
                 .module('${1:module}')
-                .filter('${2:filter}', ${2:filter});
-            
-            
-            function ${2:filter}() {
-                return ${2:filter}Filter;
+                .controller('${2:Controller}', ${2:Controller});
+        
+            ${2:Controller}.$inject = ['${3:dependencies}'];
+        
+            /* @ngInject */
+            function ${2:Controller}(${3:dependencies}){
+                var vm = this;
+                vm.title = '${2:Controller}';
+        
+                activate();
+        
                 ////////////////
-                
-                function ${2:filter}Filter(${3:params}) {
-                    return ${3:params};
-                };
+        
+                function activate() {
+                }
             }
         })();
 
