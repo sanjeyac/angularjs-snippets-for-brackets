@@ -153,18 +153,23 @@
             }
         })();
 
-- trigger: ngrun
-  description: "Angular run phase function using John Papa's Angular style guide"
+- trigger: ngstate
+  description: "Angular UI-Router state using John Papa's Angular style guide"
   scope: javascript
   text: |
-        .run(${1:runFn})
-        
-        ${1:runFn}.$inject = ['${2:dependencies}'];
-        
-        /* @ngInject */
-        function ${1:runFn} (${2:dependencies}) {
-        
-        }
+        state('${1:state}', {
+            url: '${2:/url}'
+            templateUrl: '${3:template}.html',
+            controller: '${4:Controller}'
+            controllerAs: '${5:vm}'
+        })
+
+- trigger: ngmodule
+  description: "Angular module getter using John Papa's Angular style guide"
+  scope: javascript
+  text: |
+        angular
+            .module('${1:module}')
 
 - trigger: ngconfig
   description: "Angular config phase function using John Papa's Angular style guide"
@@ -179,21 +184,48 @@
         
         }
 
-- trigger: ngmodule
-  description: "Angular module getter using John Papa's Angular style guide"
+- trigger: ngrun
+  description: "Angular run phase function using John Papa's Angular style guide"
   scope: javascript
   text: |
-        angular
-            .module('${1:module}')
+        .run(${1:runFn})
+        
+        ${1:runFn}.$inject = ['${2:dependencies}'];
+        
+        /* @ngInject */
+        function ${1:runFn} (${2:dependencies}) {
+        
+        }
 
-- trigger: ngstate
-  description: "Angular UI-Router state using John Papa's Angular style guide"
+- trigger: ngroute
+  description: "Angular routeProvider using John Papa's Angular style guide"
   scope: javascript
+  mTime: 1426416190583
   text: |
-        state('${1:state}', {
-            url: '${2:/url}'
-            templateUrl: '${3:template}.html',
-            controller: '${4:Controller}'
-            controllerAs: '${5:vm}'
+        (function() {
+            'use strict';
+            
+            angular
+                .module( '${1:app}' )
+                .config( function( $routeProvider ) {
+                    $routeProvider
+                        .when( '/', {
+                            templateUrl: '${2:home}.html',
+                            controller: '${3:Home}',
+                            controllerAs: 'vm'
+                        })
+        
+                });
+        })();
+
+- trigger: ngwhen
+  description: "Defines a route for routeProvider using John Papa's style guide"
+  scope: javascript
+  mTime: 1426416499728
+  text: |
+        .when( '/${1:home}', {
+            templateUrl: '${1:home}.html',
+            controller: '${2:Home}',
+            controllerAs: '${3:vm}'
         })
 
