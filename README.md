@@ -5,14 +5,20 @@ This is a set of snippets for [Brackets by Adobe](http://brackets.io/)
 
 It contains the following skeletons, based on [John Papa's AngularJS Style Guide](https://github.com/johnpapa/angular-styleguide)
 
-* controller
+* controllers
 * directive
 * factory
 * filter
 * module
 * service
+* route
+* and many other partials (see below)
+
+__Note: this file has been merged in the officiale guide here: [Brackets Section](https://github.com/johnpapa/angular-styleguide#style-y254)__
 
 ## Install
+
+First of all download the file 
 
 1. In order to install the snippets you have to install 'Brackets Snippets (by edc)' from the Extension manager ( File > Extension manager ) and download the [angularjsSnippets.yml from the repository](https://github.com/sanjeyac/angularjs-snippets-for-brackets)
 2. After you have installed the Snippet Manager click on the Snippet Manager icon on the right side (a bulb)
@@ -21,132 +27,28 @@ It contains the following skeletons, based on [John Papa's AngularJS Style Guide
 
 ## Usage
 
-Write 'ngcontroller' on a Javascript file to generate an AngularJS Controller skeleton,
+Write 'ngcontroller' on a Javascript file to generate an AngularJS Controller skeleton and
 press TAB to customize all the paramaters of the code.
 
 The following elements works in the same way:
+
+_These are full file snippets containing an IIFE_
+
 * ngcontroller - a controller
 * ngdirective - a directive
 * ngfactory - a factory
 * ngfilter - a filter
 * ngservice - a service
-* ngapp - an angula module
+* ngapp - an angular module
+* ngroute - routing with the standard route provider
 
-## Generated snippets samples
+_These are partial snippets intended to chained_
 
-```javascript
-/* =================== CONTROLLER =================== */
-(function() {
-    'use strict';
+* ngwhen - defines a routing when configuration
+* ngmodule - creates an angular module getter
+* ngstate - creates an Angular UI Router state defintion
+* ngconfig -  defines a configuration phase function
+* ngrun - defines a run phase function
 
-    angular
-        .module('module')
-        .controller('Controller', Controller);
 
-    Controller.$inject = ['dependencies'];
-
-    /* @ngInject */
-    function Controller(dependencies){
-        var vm = this;
-        vm.title = 'Controller';
-
-        activate();
-
-        ////////////////
-
-        function activate() {
-        }
-    }
-})();
-
-/* =================== DIRECTIVE =================== */
-(function () {
-    'use strict';
-    
-    
-    angular
-        .module('module')
-        .directive('directive', directive);
-    
-    directive.$inject = ['dependencies'];
-    
-    /* @ngInject */
-    function  directive(dependencies) {
-        // Usage:
-        //
-        // Creates:
-        //
-        var directive = {
-            bindToController: true,
-            controller: Controller,
-            controllerAs: 'vm',
-            link: link,
-            restrict: 'A',
-            scope: {}
-        };
-        return directive;
-
-        function link(scope, element, attrs) {}
-    }
-    
-    /* @ngInject */
-    function Controller() {
-    
-    }
-
-})();
-
-/* =================== FACTORY =================== */
-(function () {
-    'use strict';
-    angular
-        .module('module')
-        .factory('factory', factory);
-    
-    factory.$inject = ['dependencies'];
-    
-    /* @ngInject */
-    function  Factory(dependencies){
-        var service = {
-            func: func
-        };
-    
-        return service;
-    
-        ////////////////
-        function func() {
-            
-        }
-    }
-})();
-
-/* =================== APP MODULE =================== */
-(function () {
-    'use strict';
-
-    angular
-        .module('module', [
-                                'dependencies'
-                                ]);
-})();
-
-/* =================== FILTER =================== */
-(function () {
-    'use strict';
-    angular
-        .module('module')
-        .filter('filter', filter);
-    
-    
-    function filter() {
-        return filterFilter;
-        ////////////////
-        
-        function filterFilter(params) {
-            return params;
-        };
-    }
-})();
-
-```
 
